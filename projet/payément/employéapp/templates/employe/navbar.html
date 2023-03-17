@@ -1,0 +1,33 @@
+<div class="collapse " id="navbarToggleExternalContent">
+  <div class="bg-primary p-4 bg-primary">
+    <h5 class="text-white" style="font-family: Dyuthi; font-size:3em;">BIENVENUE AU GESTION DES EMPLOYÉS</h5>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0 font-family:Dyuthi">
+      <li class="nav-item">
+        <a class="nav-link text-white active" aria-current="page" href="{% url 'index' %}" style="font-family: Dyuthi;font-size:1.5em;"> ACCUEIL </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'adresses_list' %}" style="font-family: Dyuthi;font-size:1.5em;">liste des adresses </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'employes_list' %}" style="font-family: Dyuthi;font-size:1.5em;">liste des employés </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'banque_list' %}" style="font-family: Dyuthi;font-size:1.5em;"> liste des banques </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link text-white" href="{% url 'recu_list' %}" style="font-family: Dyuthi;font-size:1.5em;">Liste des Reçus </a>
+      </li>
+      <form class="d-flex">
+        <input class="form-control me-0.5" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline text-primary bg-white" type="submit">Search</button>
+      </form>
+    </ul>
+  </div>
+</div>
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <button class="navbar-toggler bg-primary" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  </div>
+</nav>

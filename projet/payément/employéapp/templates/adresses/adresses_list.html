@@ -1,0 +1,37 @@
+{% extends 'employe/layout.html' %}
+
+{% block content %}
+	<h1 align="center" class="text-primary">Liste des adresses</h1>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+		<a class="btn btn-primary sm " href="{% url 'add_adresse' %}"> Nouvelle adresse </a>
+	</div>
+		<table class="table table-bordered table-striped table-hover">
+		  <thead class="bg-primary">
+			<tr>
+              <th>Telephone</th>
+			  <th>Email</th>
+			  <th>Quartier</th>
+			  <th>Ville</th>
+			  <th width="210px">Opérations</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{% if adresses %} 
+			{% for adresse  in  adresses %} 
+			<tr class="success">
+			  <td>{{adresse.telephone}}</td>
+			  <td>{{adresse.email}}</td>
+			  <td>{{adresse.quartier}}</td>
+			  <td>{{adresse.ville}}</td>
+			 <td>
+				 <a class="btn btn-outline-warning sm" href="{% url 'update_adresse' adresse.id %}">Modifier</a>
+				 <a class="btn btn-outline-danger sm" href="{% url 'delete_adresse' adresse.id %}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette adresse ?')">Supprimer</a>
+			 </td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+
+		  </tbody>
+		</table>
+
+{% endblock %}

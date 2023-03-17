@@ -1,0 +1,35 @@
+{% extends 'employe/layout.html' %}
+
+{% block content %}
+	<h1 align="center" class="text-primary">Liste des banques</h1>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+		<a class="btn btn-primary sm " href="{% url 'add_banque' %}"> Nouvelle banque </a>
+	</div>
+		<table class="table table-bordered table-striped table-hover">
+		  <thead class="bg-primary text-white">
+			<tr>
+              <th>nom</th>
+			  <th>montant</th>
+			  <th>valdation</th>
+			  <th width="210px">Opérations</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{% if banques %} 
+			{% for banque  in  banques %} 
+			<tr class="success">
+			  <td>{{banque.nom}}</td>
+			  <td>{{banque.montant}}</td>
+			  <td>{{banque.validation}}</td>
+			 <td>
+				 <a class="btn btn-outline-warning sm" href="{% url 'update_banque' banque.id %}">Modifier</a>
+				 <a class="btn btn-outline-danger sm" href="{% url 'delete_banque' banque.id %}" onclick="return confirm('Etes-vous sûr de vouloir supprimer cette banque ?')">Supprimer</a>
+			 </td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+
+		  </tbody>
+		</table>
+
+{% endblock %}
