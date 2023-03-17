@@ -1,0 +1,41 @@
+{% extends 'employe/layout.html' %}
+
+{% block content %}
+	<h1 align="center" class="text-primary">Liste des employés</h1>
+	<div class="col-12 d-flex justify-content-end mb-2"> 
+		<a class="btn btn-primary sm " href="{% url 'add_employe' %}"> Nouvel employé </a>
+	</div>
+		<table class="table table-bordered table-striped table-hover">
+		  <thead class="bg-primary">
+			<tr>
+              <th>Matricule</th>
+			  <th>Nom et prenom</th>
+			  <th>Genre</th>
+			  <th>Email</th>
+			  <th>Telephone</th>
+			  <th>Photo</th>
+			  <th>Details</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			{% if employes %}            
+			{% for employe  in  employes %} 
+			<tr class="success">
+			  <td>{{employe.matricule}}</td>
+			  <td>{{employe.nom}}</td>
+			  <td>{{employe.genre}}</td>
+			  <td>{{employe.adresse.email}}</td>
+              <td>{{employe.adresse.telephone}}</td>
+			 {% if employe.photo %}
+              <td> <img src="{{employe.photo.url}}" width="25px" class="rounded-circle" > </td>
+			 {% endif %}
+			 <td><a class="btn btn-outline-info sm" href="{% url 'show_employe' employe.id %}">
+				Details
+			</a></td>
+			</tr>
+			{% endfor %}
+			{% endif %}
+		  </tbody>
+		</table>
+
+{% endblock %}
